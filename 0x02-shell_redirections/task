@@ -1,0 +1,15 @@
+#!/bin/bash
+
+read -p "Enter file name: " file_name
+echo '#!/bin/bash' > $file_name
+
+read -p "Enter command: " command
+echo "$command" >> $file_name
+
+chmod u+x $file_name
+
+git add .
+read -p "Enter git message: " git_message
+git commit -m "$git_message"
+git push
+
